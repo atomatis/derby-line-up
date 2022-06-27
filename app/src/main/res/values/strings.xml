@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DerbyLineUp</string>
+    <string name="start_match_button">Démarer le jam</string>
+    <string name="end_match_button">Fin du match</string>
+    <string name="start_jam_button">Démarer le jam</string>
+    <string name="end_jam_button">Fin du jam</string>
+    <string name="pause_jam_button">Mettre en pause</string>
+    <string name="unpause_jam_button">Reprendre le jam</string>
+</resources>
