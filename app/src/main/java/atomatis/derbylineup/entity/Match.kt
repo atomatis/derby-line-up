@@ -3,12 +3,18 @@ package atomatis.derbylineup.entity
 import java.util.*
 
 data class Match (
-    val name : String,
+    val versusTeam : String,
     val team : Team
 ) {
     lateinit var startAt : Date
     lateinit var endAt : Date
-    lateinit var jams : Array<Jam>
+    var jams : Array<Jam> = arrayOf()
+
+    fun getTitle(): String
+    {
+        val teamName = team.name
+        return "$teamName VS $versusTeam"
+    }
 
     fun addNewJam()
     {

@@ -1,25 +1,21 @@
 package atomatis.derbylineup.entity
 
-import android.graphics.Color
 import atomatis.derbylineup.jam.WeightedInterface
 
-data class Player (
-    val id: Int,
-    val name: String
+data class LinePool(
+    val number: Int
 ) : WeightedInterface {
     private var jamPlayed: Int = 0
-    var timePlayed: Int = 0
-    var fixed: Boolean = false
-    var jailed: Boolean = false
-    var out: Boolean = false
-    var color: Int = Color.CYAN
+    lateinit var players: Array<Player>
+    lateinit var pivots: Array<Player>
+    lateinit var secondaryPivots: Array<Player>
 
     override fun getJamPlayed(): Int
     {
         return jamPlayed
     }
 
-    fun addJamPlayed(): Player
+    fun addJamPlayed(): LinePool
     {
         jamPlayed++
 
@@ -28,6 +24,6 @@ data class Player (
 
     override fun getTimePlayed(): Long
     {
-        TODO("Not yet implemented")
+        return 0 // TODO?
     }
 }
