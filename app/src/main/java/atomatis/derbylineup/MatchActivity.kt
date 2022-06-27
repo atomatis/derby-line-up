@@ -1,10 +1,14 @@
 package atomatis.derbylineup
 
+import android.content.ClipData
+import android.content.ClipDescription
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import atomatis.derbylineup.databinding.ActivityMatchBinding
 import atomatis.derbylineup.entity.*
@@ -17,6 +21,7 @@ class MatchActivity : AppCompatActivity() {
     private lateinit var match: Match
 
     // On creation de l'activité
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         // Call parent method
         super.onCreate(savedInstanceState)
@@ -42,11 +47,24 @@ class MatchActivity : AppCompatActivity() {
 
         binding.matchTitle.text = match.getTitle()
 
-        binding.testJail.setOnDragListener(fun (v, event): Boolean {
-            Toast.makeText(this, "test drag listener", Toast.LENGTH_SHORT).show()
+        // see https://www.raywenderlich.com/24508555-android-drag-and-drop-tutorial-moving-views-and-data#toc-anchor-007
+        binding.pivot.setOnLongClickListener { view: View ->
 
-            return true
-        })
+            val item = ClipData.Item("item drag data")
+
+            val dataToDrag = ClipData(
+                "label mes couilles",
+                arrayOf(ClipDescription.MIMETYPE_TEXT_PLAIN),
+                item
+            )
+
+
+            view.startDragAndDrop(dataToDrag, View.DragShadowBuilder(view), view, 0)
+
+            view.visibility = View.INVISIBLE
+
+            true
+        }
     }
 
     private fun getMockData() : Match
