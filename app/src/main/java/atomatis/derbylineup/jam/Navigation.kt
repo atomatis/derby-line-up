@@ -1,8 +1,7 @@
 package atomatis.derbylineup.jam
 
 import atomatis.derbylineup.databinding.ActivityMatchBinding
-import atomatis.derbylineup.entity.Jam
-import atomatis.derbylineup.entity.Match
+import atomatis.derbylineup.room.entity.match.*
 
 class Navigation(
     private val binding: ActivityMatchBinding,
@@ -32,18 +31,18 @@ class Navigation(
 
     private fun show(jam: Jam)
     {
-        binding.status.text = jam.status
-        binding.jammer.text = jam.line.jammer?.name ?: "missing player"
-        binding.pivot.text = jam.line.pivot?.name ?: "missing player"
-        binding.blockOne.text = jam.line.blockerOne?.name ?: "missing player"
-        binding.blockTwo.text = jam.line.blockerTwo?.name ?: "missing player"
-        binding.blockThree.text = jam.line.blockerThree?.name ?: "missing player"
-
-        binding.jammer.setBackgroundColor(jam.line.jammer?.color ?: 0)
-        binding.pivot.setBackgroundColor(jam.line.pivot?.color ?: 0)
-        binding.blockOne.setBackgroundColor(jam.line.blockerOne?.color ?: 0)
-        binding.blockTwo.setBackgroundColor(jam.line.blockerTwo?.color ?: 0)
-        binding.blockThree.setBackgroundColor(jam.line.blockerThree?.color ?: 0)
+//        binding.status.text = jam.status
+//        binding.jammer.text = jam.line.jammer?.name ?: "missing player"
+//        binding.pivot.text = jam.line.pivot?.name ?: "missing player"
+//        binding.blockOne.text = jam.line.blockerOne?.name ?: "missing player"
+//        binding.blockTwo.text = jam.line.blockerTwo?.name ?: "missing player"
+//        binding.blockThree.text = jam.line.blockerThree?.name ?: "missing player"
+//
+//        binding.jammer.setBackgroundColor(jam.line.jammer?.color ?: 0)
+//        binding.pivot.setBackgroundColor(jam.line.pivot?.color ?: 0)
+//        binding.blockOne.setBackgroundColor(jam.line.blockerOne?.color ?: 0)
+//        binding.blockTwo.setBackgroundColor(jam.line.blockerTwo?.color ?: 0)
+//        binding.blockThree.setBackgroundColor(jam.line.blockerThree?.color ?: 0)
     }
 
     private fun showPrevious()

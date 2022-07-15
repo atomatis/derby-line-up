@@ -1,7 +1,6 @@
 package atomatis.derbylineup.jam
 
-import atomatis.derbylineup.entity.Jam
-import atomatis.derbylineup.entity.Match
+import atomatis.derbylineup.room.entity.match.*
 
 class ChainLineGuesser {
     fun guessJams(match: Match)
@@ -9,7 +8,7 @@ class ChainLineGuesser {
         match.jams.forEach lit@ {
             if (it.status === Jam.STATUS_DONE) return@lit // continue
             val lineGuesser = LineGuesser(it)
-            lineGuesser.guessJamLine()
+//            lineGuesser.guessJamLine()
         }
     }
 }

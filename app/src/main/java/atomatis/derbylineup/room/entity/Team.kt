@@ -1,5 +1,8 @@
-package atomatis.derbylineup.entity
+package atomatis.derbylineup.room.entity
 
+import androidx.room.Entity
+
+@Entity
 data class Team(
     val name: String
 ) {

@@ -1,5 +1,6 @@
-package atomatis.derbylineup.entity
+package atomatis.derbylineup.room.entity.match
 
+import atomatis.derbylineup.room.entity.Player
 import java.util.*
 
 data class Jam(
@@ -12,9 +13,13 @@ data class Jam(
         const val STATUS_COMING = "coming"
     }
 
+    var jammer : Player? = null
+    var pivot : Player? = null
+    var blockerOne : Player? = null
+    var blockerTwo : Player? = null
+    var blockerThree : Player? = null
+
     var status : String = STATUS_COMING
     var duration : Int = 0
-    var line: Line = Line()
-    lateinit var linePool : LinePool
     lateinit var startAt : Date
 }

@@ -3,7 +3,11 @@ package atomatis.derbylineup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.lifecycle.ViewModel
 import atomatis.derbylineup.databinding.ActivityMainBinding
+import atomatis.derbylineup.room.AppDatabase
+import atomatis.derbylineup.room.entity.Player
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -19,8 +23,20 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(binding.root.context, MatchActivity::class.java)
 
+        val database: AppDatabase by lazy { AppDatabase.getDatabase(this) }
+
         binding.newMatch.setOnClickListener {
-            binding.root.context.startActivity(intent)
+
+
+            val test = Test(database.playerDao())
+
+            test.test()
+
+            println("Hello world!")
+
+//            binding.root.context.startActivity(intent)
         }
+
+
     }
 }
